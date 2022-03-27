@@ -1,0 +1,159 @@
+<html>
+  <head>
+    <title>uWave Take Home Challenge</title>
+    <style>
+      .words
+      {
+      font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: rgb(76, 101, 233);
+      Font-size:1 px;
+      Margin:28px;
+      Padding:30 px;
+      }
+
+      .input 
+      {
+        Margin:28px;
+        Padding:30 px;
+      }
+      </style>
+    <script type="text/javascript">
+      function returnBusStopById()
+      {
+          var url = "http://localhost:8080/BusStop/" + document.getElementById('list').value;
+          if(url != 'none') {
+              window.location = url;
+          }
+      }
+
+      function returnBusStopByName()
+      {
+          var url = "http://localhost:8080/BusStopName/" + document.getElementById('BusStop').value;
+          if(url != 'none') {
+              window.location = url;
+          }
+      }
+
+      function returnBusStopTimingsByName()
+      {
+        var url = "http://localhost:8080/BusStopLists/" + document.getElementById('BusTimings').value;
+          if(url != 'none') {
+              window.location = url;
+          }
+      }
+
+      function returnBusTimingByNameAndBusId()
+      {
+        var url = "http://localhost:8080/BusStopList/" + document.getElementById('BusTimingsList').value + "/" + document.getElementById('BusList').value
+        if(url != 'none') {
+              window.location = url;
+          }
+      }
+
+      function returnBusTimingsByBusId()
+      {
+        var url = "http://localhost:8080/BusLine/" + document.getElementById('AllBuses').value 
+        if(url != 'none') {
+              window.location = url;
+          }
+      }
+
+    
+   </script>
+  </head>
+  <body>
+    <center>
+    <h1 class = "words"><u>Instructions</u></h1>
+  </center>
+    <br>
+    
+
+    <p>
+    <h2 class = "words">Homepage/Instructions : http://localhost:8080/</h2>
+    <span>
+      <h2 class = "words">Return Bus Stop by Bus Stop Id: http://localhost:8080/BusStop/{id} or </h2>
+      <form class = "input">
+        <select name="list" id="list" accesskey="target">
+            <option value='none' selected>Choose an ID</option>
+            <option value="378204">378204</option>
+            <option value="383050">383050</option>
+            <option value="378202">378202</option>
+            <option value="383049">383049</option>
+            <option value="382998">382998</option>
+            <option value="378237">378237</option>
+            <option value="378233">378233</option>
+            <option value="378230">378230</option>
+
+            <option value="378229">378229</option>
+            <option value="378228">378228</option>
+            <option value="378227">378227</option>
+            <option value="382995">382995</option>
+            <option value="378224">378224</option>
+            <option value="378226">378226</option>
+            <option value="383010">383010</option>
+            <option value="383009">383009</option>
+
+            <option value="383006">383006</option>
+            <option value="383004">383004</option>
+            <option value="378234">378234</option>
+            <option value="383003">383003</option>
+            <option value="378222">378222</option>
+            <option value="383048">383048</option>
+            <option value="378203">378203</option>
+            <option value="382999">382999</option>
+
+            <option value="378225">378225</option>
+            <option value="383014">383014</option>
+            <option value="383013">383013</option>
+            <option value="383011">383011</option>
+            <option value="377906">377906</option>
+            <option value="383018">383018</option>
+            <option value="383015">383015</option>
+            <option value="378207">378207</option>
+           
+        </select>
+        <input type=button value="Go" onclick="returnBusStopById()" />
+        </form>
+    </span>
+    <span ><h2 class = "words" >Return Bus Stop by Bus Stop Name : http://localhost:8080/BusStopName/{name} or </h2>
+      <form class = "input">
+        <input type = "text" id = "BusStop" placeholder = "Enter Bus Stop Name">
+        <input type = button value = "Go" onclick= "returnBusStopByName()">
+      </form>
+    
+    </span>
+    <h2 class = "words">Return the list of bus timings based on a bus stop name : http://localhost:8080/BusStopLists/{name} or </h2>
+    <form class = "input">
+      <input type = "text" id = "BusTimings" placeholder = "Enter Bus Stop Name">
+      <input type = button value = "Go" onclick= "returnBusStopTimingsByName()">
+    </form>
+    <h2 class = "words">Return a particular bus timing based on a bus stop name and the bus line ID: http://localhost:8080/BusStopList/{name}/{id} or </h2>
+    <span>
+    <form class = "input">
+      <input type = "text" id = "BusTimingsList" placeholder = "Enter Bus Stop Name">
+
+      <select name="list" id="BusList" accesskey="target">
+          <option value='none' selected>Choose a Bus Line</option>
+          <option value="44478">Campus Loop Red</option>
+          <option value="44479">Campus Loop Blue</option>
+          <option value="44480">Campus Rider Green</option>
+          <option value="44481">Campus Weekend Rider Brown</option>
+      </select>
+      <input type=button value="Go" onclick="returnBusTimingByNameAndBusId()" />
+      </form>
+    </span>
+    <h2 class = "words">Return List of current buses based on the bus line id : http://localhost:8080/BusLine/{id} or </h2>
+    <form class = "input">
+
+      <select name="list" id="AllBuses" accesskey="target">
+          <option value='none' selected>Choose a Bus Line</option>
+          <option value="44478">Campus Loop Red</option>
+          <option value="44479">Campus Loop Blue</option>
+          <option value="44480">Campus Rider Green</option>
+          <option value="44481">Campus Weekend Rider Brown</option>
+      </select>
+      <input type=button value="Go" onclick="returnBusTimingsByBusId()" />
+      </form>
+  </p>
+  </body>
+</html>
